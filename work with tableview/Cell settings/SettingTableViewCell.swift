@@ -27,6 +27,15 @@ class SettingTableViewCell: UITableViewCell {
         
         return imageView
     }()
+
+    private let label: UILabel = {
+        let label = UILabel()
+        
+        label.numberOfLines = 1
+        
+        
+        return label
+    }()
     
 // MARK: - Properties
     static let indentifier = "SettingTableViewCell"
@@ -34,6 +43,14 @@ class SettingTableViewCell: UITableViewCell {
 // MARK: - Initializer
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        contentView.addSubview(label)
+        contentView.addSubview(iconImageView)
+        contentView.addSubview(iconContainer)
+        
+        contentView.clipsToBounds = true
+        
+        accessoryType = .disclosureIndicator
     }
     
     required init?(coder: NSCoder) {
@@ -43,6 +60,9 @@ class SettingTableViewCell: UITableViewCell {
 // MARK: - Override methods
     override func layoutSubviews() {
         super.layoutSubviews()
+        iconImageView.image = nil
+        label.text = nil
+        iconContainer.backgroundColor = nil
     }
     
     override func prepareForReuse() {

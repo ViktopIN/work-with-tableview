@@ -12,7 +12,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 // MARK: - Views
     var tableView: UITableView = {
         
-        var tableView = UITableView(frame: .zero, style: .grouped)
+        let tableView = UITableView(frame: .zero, style: .grouped)
         
         tableView.register(UITableViewCell.self,
                            forCellReuseIdentifier: "cell")

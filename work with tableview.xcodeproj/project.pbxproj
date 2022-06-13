@@ -58,16 +58,24 @@
 		356678F828578DEC004B4E7C /* work with tableview */ = {
 			isa = PBXGroup;
 			children = (
+				356679112857A45D004B4E7C /* Cell settings */,
 				356678F928578DEC004B4E7C /* AppDelegate.swift */,
 				356678FD28578DEC004B4E7C /* ViewController.swift */,
-				3566790D28579C72004B4E7C /* SettingsOptions.swift */,
 				356678FF28578DEC004B4E7C /* Main.storyboard */,
 				3566790228578DEF004B4E7C /* Assets.xcassets */,
 				3566790428578DEF004B4E7C /* LaunchScreen.storyboard */,
 				3566790728578DEF004B4E7C /* Info.plist */,
-				3566790F2857A14D004B4E7C /* SettingTableViewCell.swift */,
 			);
 			path = "work with tableview";
+			sourceTree = "<group>";
+		};
+		356679112857A45D004B4E7C /* Cell settings */ = {
+			isa = PBXGroup;
+			children = (
+				3566790D28579C72004B4E7C /* SettingsOptions.swift */,
+				3566790F2857A14D004B4E7C /* SettingTableViewCell.swift */,
+			);
+			path = "Cell settings";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
