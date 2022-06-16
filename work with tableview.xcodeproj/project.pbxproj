@@ -12,6 +12,8 @@
 		3566790128578DEC004B4E7C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 356678FF28578DEC004B4E7C /* Main.storyboard */; };
 		3566790328578DEF004B4E7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3566790228578DEF004B4E7C /* Assets.xcassets */; };
 		3566790628578DEF004B4E7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3566790428578DEF004B4E7C /* LaunchScreen.storyboard */; };
+		3566790E28579C72004B4E7C /* SettingsOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3566790D28579C72004B4E7C /* SettingsOptions.swift */; };
+		356679102857A14D004B4E7C /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3566790F2857A14D004B4E7C /* SettingTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		3566790228578DEF004B4E7C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3566790528578DEF004B4E7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3566790728578DEF004B4E7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3566790D28579C72004B4E7C /* SettingsOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsOptions.swift; sourceTree = "<group>"; };
+		3566790F2857A14D004B4E7C /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,7 @@
 		356678F828578DEC004B4E7C /* work with tableview */ = {
 			isa = PBXGroup;
 			children = (
+				356679112857A45D004B4E7C /* Cell settings */,
 				356678F928578DEC004B4E7C /* AppDelegate.swift */,
 				356678FD28578DEC004B4E7C /* ViewController.swift */,
 				356678FF28578DEC004B4E7C /* Main.storyboard */,
@@ -62,6 +67,15 @@
 				3566790728578DEF004B4E7C /* Info.plist */,
 			);
 			path = "work with tableview";
+			sourceTree = "<group>";
+		};
+		356679112857A45D004B4E7C /* Cell settings */ = {
+			isa = PBXGroup;
+			children = (
+				3566790D28579C72004B4E7C /* SettingsOptions.swift */,
+				3566790F2857A14D004B4E7C /* SettingTableViewCell.swift */,
+			);
+			path = "Cell settings";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +151,8 @@
 			files = (
 				356678FE28578DEC004B4E7C /* ViewController.swift in Sources */,
 				356678FA28578DEC004B4E7C /* AppDelegate.swift in Sources */,
+				356679102857A14D004B4E7C /* SettingTableViewCell.swift in Sources */,
+				3566790E28579C72004B4E7C /* SettingsOptions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +301,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CQP8YYBTMF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "work with tableview/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -312,6 +329,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CQP8YYBTMF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "work with tableview/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
