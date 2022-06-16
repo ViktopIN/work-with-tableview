@@ -14,7 +14,20 @@ struct SettingsOptions {
     let handler: (() -> Void)
 }
 
+struct SettingSwitchOption {
+    let title: String
+    let icon: UIImage?
+    let iconBackgroundColor: UIColor
+    let handler: (() -> Void)
+    var isOn: Bool
+}
+
 struct Section {
     let title: String
-    let option: [SettingsOptions]
+    let option: [SettingsOptionsType]
+}
+
+enum SettingsOptionsType {
+    case staticCell(model: SettingsOptions)
+    case switchCell(model: SettingSwitchOption)
 }

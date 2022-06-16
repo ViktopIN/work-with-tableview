@@ -16,6 +16,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         tableView.register(SettingTableViewCell.self,
                            forCellReuseIdentifier: SettingTableViewCell.indentifier)
+        tableView.register(SwitchTableViewCells.self,
+                           forCellReuseIdentifier: SwitchTableViewCells.indentifier)
     
         return tableView
     }()
@@ -42,7 +44,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
 // MARK: - Lifecycle
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         
         title = "Настройки"
@@ -62,48 +63,72 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = model[indexPath.section].option[indexPath.row]
-        guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: SettingTableViewCell.indentifier,
-            for: indexPath
-        ) as? SettingTableViewCell else {
-            return UITableViewCell()
+        
+        switch model.self {
+        case .staticCell(let model):
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: SettingTableViewCell.indentifier,
+                for: indexPath
+            ) as? SettingTableViewCell else {
+                return UITableViewCell()
+            }
+            cell.configure(with: model)
+            return cell
+        case .switchCell(model: let model):
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: SwitchTableViewCells.indentifier,
+                for: indexPath
+            ) as? SwitchTableViewCells else {
+                return UITableViewCell()
+            }
+            cell.configure(with: model)
+            return cell
         }
-    
-        cell.configure(with: model)
-        return cell
     }
     
     func configure() {
         self.model.append(Section(title: "General", option: [
-            SettingsOptions(title: "Wifi", icon: UIImage(systemName: "wifi"), iconBackgroundColor: .systemPink){
-                print("Tapped fuck dope")
-        },
-            SettingsOptions(title: "AirplaneMode", icon: UIImage(systemName: "airplane"), iconBackgroundColor: .systemOrange){
-        },
-            SettingsOptions(title: "Bluetooth", icon: UIImage(systemName: "bluetooth"), iconBackgroundColor: .link){
-        },
-            SettingsOptions(title: "ICloud", icon: UIImage(systemName: "cloud"), iconBackgroundColor: .red){
-        }]))
-        
-        self.model.append(Section(title: "Apps", option: [
-            SettingsOptions(title: "Wifi", icon: UIImage(systemName: "wifi"), iconBackgroundColor: .systemPink){
-        },
-            SettingsOptions(title: "AirplaneMode", icon: UIImage(systemName: "airplane"), iconBackgroundColor: .systemOrange){
-        },
-            SettingsOptions(title: "Bluetooth", icon: UIImage(systemName: "bluetooth"), iconBackgroundColor: .link){
-        },
-            SettingsOptions(title: "ICloud", icon: UIImage(systemName: "cloud"), iconBackgroundColor: .red){
-        }]))
-        
+            .switchCell(model: SettingSwitchOption(title: "Airplane mode",
+                                                   icon: UIImage(systemName: "airplane"),
+                                                   iconBackgroundColor: .systemOrange,
+                                                   handler: {
+                                                       
+                                                   },
+                                                   isOn: true)),
+            .staticCell(model: SettingsOptions(title: "Bluetooth",
+                                               icon: UIImage(systemName: "bluetooth"),
+                                               iconBackgroundColor: .link){
+                                                   
+                                               }),
+            .staticCell(model: SettingsOptions(title: "ICloud",
+                                               icon: UIImage(systemName: "cloud"),
+                                               iconBackgroundColor: .red){
+                                                   
+                                               })
+        ]))
+          
         self.model.append(Section(title: "Information", option: [
-            SettingsOptions(title: "Wifi", icon: UIImage(systemName: "wifi"), iconBackgroundColor: .systemPink){
-        },
-            SettingsOptions(title: "AirplaneMode", icon: UIImage(systemName: "airplane"), iconBackgroundColor: .systemOrange){
-        },
-            SettingsOptions(title: "Bluetooth", icon: UIImage(systemName: "bluetooth"), iconBackgroundColor: .link){
-        },
-            SettingsOptions(title: "ICloud", icon: UIImage(systemName: "cloud"), iconBackgroundColor: .red){
-        }
+            .staticCell(model: SettingsOptions(title: "Wifi",
+                                               icon: UIImage(systemName: "wifi"),
+                                               iconBackgroundColor: .systemPink){
+                                                   print("Tapped fuck dope")
+                                                   
+                                               }),
+            .staticCell(model: SettingsOptions(title: "AirplaneMode",
+                                               icon: UIImage(systemName: "airplane"),
+                                               iconBackgroundColor: .systemOrange){
+                                                   
+                                               }),
+            .staticCell(model: SettingsOptions(title: "Bluetooth",
+                                               icon: UIImage(systemName: "bluetooth"),
+                                               iconBackgroundColor: .link){
+                                                   
+                                               }),
+            .staticCell(model: SettingsOptions(title: "ICloud",
+                                               icon: UIImage(systemName: "cloud"),
+                                               iconBackgroundColor: .red){
+                                                   
+                                               })
         ]))
     }
     
@@ -115,8 +140,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let model = model[indexPath.section].option[indexPath.row]
-        model.handler()
+        let type = model[indexPath.section].option[indexPath.row]
+        
+        switch type.self {
+        case .staticCell(let model):
+            model.handler()
+        case .switchCell(model: let model):
+            model.handler()
+        }
     }
 }
 
