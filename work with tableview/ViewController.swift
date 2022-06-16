@@ -88,23 +88,41 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func configure() {
         self.model.append(Section(title: "General", option: [
-            .switchCell(model: SettingSwitchOption(title: "Airplane mode",
+            .switchCell(model: SettingSwitchOption(title: "Авиарежим",
                                                    icon: UIImage(systemName: "airplane"),
                                                    iconBackgroundColor: .systemOrange,
                                                    handler: {
-                                                       
+                                                       print("Переключен авиарежим")
                                                    },
                                                    isOn: true)),
-            .staticCell(model: SettingsOptions(title: "Bluetooth",
-                                               icon: UIImage(systemName: "bluetooth"),
+            .staticCell(model: SettingsOptions(title: "WI-FI",
+                                               icon: UIImage(systemName: "wifi"),
                                                iconBackgroundColor: .link){
-                                                   
+                                                   print("Нажата ячейка WI-FI")
                                                }),
-            .staticCell(model: SettingsOptions(title: "ICloud",
-                                               icon: UIImage(systemName: "cloud"),
-                                               iconBackgroundColor: .red){
-                                                   
-                                               })
+            .staticCell(model: SettingsOptions(title: "Bluetooth",
+                                               icon: UIImage(named: "bluetooth"),
+                                               iconBackgroundColor: .link){
+                                                   print("Нажата ячейка Bluetooth")
+                                               }),
+            .staticCell(model: SettingsOptions(title: "Сотовая связь",
+                                               icon: UIImage(systemName: "antenna.radiowaves.left.and.right"),
+                                               iconBackgroundColor: .systemGreen){
+                                                   print("Нажата ячейка сотовая связь")
+                                               }),
+            .staticCell(model: SettingsOptions(title: "Режим модема",
+                                               icon: UIImage(systemName: "personalhotspot"),
+                                               iconBackgroundColor: .systemGreen){
+                                                   print("Нажата ячейка режим модема")
+                                               }),
+            .switchCell(model: SettingSwitchOption(title: "VPN",
+                                                   icon: UIImage(named: "vpn"),
+                                                   iconBackgroundColor: .link,
+                                                   handler: {
+                                                       print("Переключен VPN")
+                                                   },
+                                                   isOn: false))
+            
         ]))
           
         self.model.append(Section(title: "Information", option: [
