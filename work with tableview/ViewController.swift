@@ -81,6 +81,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             ) as? SwitchTableViewCells else {
                 return UITableViewCell()
             }
+            cell.selectionStyle = UITableViewCell.SelectionStyle.none
             cell.configure(with: model)
             return cell
         }
@@ -91,9 +92,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             .switchCell(model: SettingSwitchOption(title: "Авиарежим",
                                                    icon: UIImage(systemName: "airplane"),
                                                    iconBackgroundColor: .systemOrange,
-                                                   handler: {
-                                                       print("Переключен авиарежим")
-                                                   },
+                                                   handler: {},
                                                    isOn: true)),
             .staticCell(model: SettingsOptions(title: "WI-FI",
                                                icon: UIImage(systemName: "wifi"),
@@ -118,37 +117,58 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             .switchCell(model: SettingSwitchOption(title: "VPN",
                                                    icon: UIImage(named: "vpn"),
                                                    iconBackgroundColor: .link,
-                                                   handler: {
-                                                       print("Переключен VPN")
-                                                   },
+                                                   handler: {},
                                                    isOn: false))
             
         ]))
           
-        self.model.append(Section(title: "Information", option: [
-            .staticCell(model: SettingsOptions(title: "Wifi",
-                                               icon: UIImage(systemName: "wifi"),
-                                               iconBackgroundColor: .systemPink){
-                                                   print("Tapped fuck dope")
-                                                   
-                                               }),
-            .staticCell(model: SettingsOptions(title: "AirplaneMode",
-                                               icon: UIImage(systemName: "airplane"),
-                                               iconBackgroundColor: .systemOrange){
-                                                   
-                                               }),
-            .staticCell(model: SettingsOptions(title: "Bluetooth",
-                                               icon: UIImage(systemName: "bluetooth"),
-                                               iconBackgroundColor: .link){
-                                                   
-                                               }),
-            .staticCell(model: SettingsOptions(title: "ICloud",
-                                               icon: UIImage(systemName: "cloud"),
+        self.model.append(Section(title: "Main settings", option: [
+            .staticCell(model: SettingsOptions(title: "Основные настройки",
+                                               icon: UIImage(systemName: "notification"),
                                                iconBackgroundColor: .red){
-                                                   
+                                                   print("Нажата ячейка уведомления")
+                                               }),
+            .staticCell(model: SettingsOptions(title: "Звуки, тактильные сигналы",
+                                               icon: UIImage(named: "sound"),
+                                               iconBackgroundColor: .systemPink){
+                                                   print("Нажата ячейка Звуки, тактильные сигналы")
+                                               }),
+            .staticCell(model: SettingsOptions(title: "Не беспокоить",
+                                               icon: UIImage(systemName: "moon.fill"),
+                                               iconBackgroundColor: .systemPurple){
+                                                   print("Нажата ячейка Не беспокоить")
+                                               }),
+            .staticCell(model: SettingsOptions(title: "Экранное время",
+                                               icon: UIImage(systemName: "hourglass"),
+                                               iconBackgroundColor: .red){
+                                                   print("Экранное время")
                                                })
         ]))
     }
+    
+    self.model.append(Section(title: "Notification", option: [
+        .staticCell(model: SettingsOptions(title: "Уведомления",
+                                           icon: UIImage(named: "notification"),
+                                           iconBackgroundColor: .red){
+                                               print("Нажата ячейка уведомления")
+                                           }),
+        .staticCell(model: SettingsOptions(title: "Звуки, тактильные сигналы",
+                                           icon: UIImage(named: "sound"),
+                                           iconBackgroundColor: .systemPink){
+                                               print("Нажата ячейка Звуки, тактильные сигналы")
+                                           }),
+        .staticCell(model: SettingsOptions(title: "Не беспокоить",
+                                           icon: UIImage(systemName: "moon.fill"),
+                                           iconBackgroundColor: .systemPurple){
+                                               print("Нажата ячейка Не беспокоить")
+                                           }),
+        .staticCell(model: SettingsOptions(title: "Экранное время",
+                                           icon: UIImage(systemName: "hourglass"),
+                                           iconBackgroundColor: .red){
+                                               print("Экранное время")
+                                           })
+    ]))
+}
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return model.count

@@ -109,5 +109,17 @@ class SwitchTableViewCells: UITableViewCell {
         iconImageView.image = model.icon
         iconContainer.backgroundColor = model.iconBackgroundColor
         mySwitch.isOn = model.isOn
+        
+        mySwitch.addTarget(self, action: #selector(didTapAdvertise), for:UIControl.Event.valueChanged)
+
+    }
+    @objc func didTapAdvertise(mySwitch: UISwitch) {
+        if mySwitch.isOn {
+            print("Режим включен")
+        } else {
+            print("Режим выключен")
+        }
     }
 }
+
+
