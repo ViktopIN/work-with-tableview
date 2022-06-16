@@ -33,7 +33,6 @@ class SwitchTableViewCells: UITableViewCell {
         
         label.numberOfLines = 1
         
-        
         return label
     }()
     
@@ -63,7 +62,6 @@ class SwitchTableViewCells: UITableViewCell {
         contentView.clipsToBounds = true
         
         accessoryType = .none
-        
     }
     
     required init?(coder: NSCoder) {

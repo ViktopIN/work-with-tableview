@@ -31,10 +31,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         view.addSubview(tableView)
     }
     
-    private func setupLayout() {
-
-    }
-    
     private func setupView() {
         
         tableView.delegate = self
@@ -51,9 +47,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         configure()
         
         setupHierarchy()
-        setupLayout()
         setupView()
-        
     }
     
 // MARK: - Methods
@@ -122,9 +116,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
         ]))
           
-        self.model.append(Section(title: "Main settings", option: [
-            .staticCell(model: SettingsOptions(title: "Основные настройки",
-                                               icon: UIImage(systemName: "notification"),
+        self.model.append(Section(title: "Notification", option: [
+            .staticCell(model: SettingsOptions(title: "Уведомления",
+                                               icon: UIImage(systemName: "speaker.wave.3"),
                                                iconBackgroundColor: .red){
                                                    print("Нажата ячейка уведомления")
                                                }),
@@ -141,34 +135,38 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             .staticCell(model: SettingsOptions(title: "Экранное время",
                                                icon: UIImage(systemName: "hourglass"),
                                                iconBackgroundColor: .red){
-                                                   print("Экранное время")
+                                                   print("Нажата ячейка Экранное время")
+                                               })
+        ]))
+        
+        self.model.append(Section(title: "Main settings", option: [
+            .staticCell(model: SettingsOptions(title: "Основные",
+                                               icon: UIImage(systemName: "gear"),
+                                               iconBackgroundColor: .lightGray){
+                                                   print("Нажата ячейка Основные")
+                                               }),
+            .staticCell(model: SettingsOptions(title: "Пункты управления",
+                                               icon: UIImage(systemName: "switch.2"),
+                                               iconBackgroundColor: .lightGray){
+                                                   print("Нажата ячейка Пункты управления")
+                                               }),
+            .staticCell(model: SettingsOptions(title: "Экран и яркость",
+                                               icon: UIImage(systemName: "textformat.size"),
+                                               iconBackgroundColor: .link){
+                                                   print("Нажата ячейка Экран и яркость")
+                                               }),
+            .staticCell(model: SettingsOptions(title: "Экран \u{0022}Домой\u{0022}",
+                                               icon: UIImage(named: "icons"),
+                                               iconBackgroundColor: .blue){
+                                                   print("Нажата ячейка Экран \u{0022}Домой\u{0022}")
+                                               }),
+            .staticCell(model: SettingsOptions(title: "Универсальный доступ",
+                                               icon: UIImage(systemName: "person.circle"),
+                                               iconBackgroundColor: .link){
+                                                   print("Нажата ячейка Универсальный доступ")
                                                })
         ]))
     }
-    
-    self.model.append(Section(title: "Notification", option: [
-        .staticCell(model: SettingsOptions(title: "Уведомления",
-                                           icon: UIImage(named: "notification"),
-                                           iconBackgroundColor: .red){
-                                               print("Нажата ячейка уведомления")
-                                           }),
-        .staticCell(model: SettingsOptions(title: "Звуки, тактильные сигналы",
-                                           icon: UIImage(named: "sound"),
-                                           iconBackgroundColor: .systemPink){
-                                               print("Нажата ячейка Звуки, тактильные сигналы")
-                                           }),
-        .staticCell(model: SettingsOptions(title: "Не беспокоить",
-                                           icon: UIImage(systemName: "moon.fill"),
-                                           iconBackgroundColor: .systemPurple){
-                                               print("Нажата ячейка Не беспокоить")
-                                           }),
-        .staticCell(model: SettingsOptions(title: "Экранное время",
-                                           icon: UIImage(systemName: "hourglass"),
-                                           iconBackgroundColor: .red){
-                                               print("Экранное время")
-                                           })
-    ]))
-}
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return model.count
