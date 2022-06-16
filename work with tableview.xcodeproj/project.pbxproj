@@ -14,6 +14,7 @@
 		3566790628578DEF004B4E7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3566790428578DEF004B4E7C /* LaunchScreen.storyboard */; };
 		3566790E28579C72004B4E7C /* SettingsOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3566790D28579C72004B4E7C /* SettingsOptions.swift */; };
 		356679102857A14D004B4E7C /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3566790F2857A14D004B4E7C /* SettingTableViewCell.swift */; };
+		35D24BDF285B9F6E00153278 /* SwitchTableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D24BDE285B9F6E00153278 /* SwitchTableViewCells.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		3566790728578DEF004B4E7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3566790D28579C72004B4E7C /* SettingsOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsOptions.swift; sourceTree = "<group>"; };
 		3566790F2857A14D004B4E7C /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		35D24BDE285B9F6E00153278 /* SwitchTableViewCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCells.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 			children = (
 				3566790D28579C72004B4E7C /* SettingsOptions.swift */,
 				3566790F2857A14D004B4E7C /* SettingTableViewCell.swift */,
+				35D24BDE285B9F6E00153278 /* SwitchTableViewCells.swift */,
 			);
 			path = "Cell settings";
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 			files = (
 				356678FE28578DEC004B4E7C /* ViewController.swift in Sources */,
 				356678FA28578DEC004B4E7C /* AppDelegate.swift in Sources */,
+				35D24BDF285B9F6E00153278 /* SwitchTableViewCells.swift in Sources */,
 				356679102857A14D004B4E7C /* SettingTableViewCell.swift in Sources */,
 				3566790E28579C72004B4E7C /* SettingsOptions.swift in Sources */,
 			);
