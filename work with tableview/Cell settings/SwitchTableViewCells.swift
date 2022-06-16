@@ -33,7 +33,6 @@ class SwitchTableViewCells: UITableViewCell {
         
         label.numberOfLines = 1
         
-        
         return label
     }()
     
@@ -63,7 +62,6 @@ class SwitchTableViewCells: UITableViewCell {
         contentView.clipsToBounds = true
         
         accessoryType = .none
-        
     }
     
     required init?(coder: NSCoder) {
@@ -109,5 +107,17 @@ class SwitchTableViewCells: UITableViewCell {
         iconImageView.image = model.icon
         iconContainer.backgroundColor = model.iconBackgroundColor
         mySwitch.isOn = model.isOn
+        
+        mySwitch.addTarget(self, action: #selector(didTapAdvertise), for:UIControl.Event.valueChanged)
+
+    }
+    @objc func didTapAdvertise(mySwitch: UISwitch) {
+        if mySwitch.isOn {
+            print("Режим включен")
+        } else {
+            print("Режим выключен")
+        }
     }
 }
+
+

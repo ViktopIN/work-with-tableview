@@ -33,7 +33,6 @@ class SettingTableViewCell: UITableViewCell {
         
         label.numberOfLines = 1
         
-        
         return label
     }()
     
