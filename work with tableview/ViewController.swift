@@ -21,7 +21,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }()
     
 // MARK: - Properties
-    var model = [SettingsOptions]()
+    var model = [Section]()
     
 // MARK: - Settings
     private func setupHierarchy() {
@@ -57,11 +57,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
 // MARK: - Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return model.count
+        return model[section].option.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let model = model[indexPath.row]
+        let model = model[indexPath.section].option[indexPath.row]
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: SettingTableViewCell.indentifier,
             for: indexPath
@@ -74,12 +74,49 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func configure() {
-        self.model = Array(0...20).compactMap {
-            SettingsOptions(title: "Item \($0)",
-                            icon: UIImage(systemName: "house"),
-                            iconBackgroundColor: .systemPink) {
-                
-            }
+        self.model.append(Section(title: "General", option: [
+            SettingsOptions(title: "Wifi", icon: UIImage(systemName: "wifi"), iconBackgroundColor: .systemPink){
+                print("Tapped fuck dope")
+        },
+            SettingsOptions(title: "AirplaneMode", icon: UIImage(systemName: "airplane"), iconBackgroundColor: .systemOrange){
+        },
+            SettingsOptions(title: "Bluetooth", icon: UIImage(systemName: "bluetooth"), iconBackgroundColor: .link){
+        },
+            SettingsOptions(title: "ICloud", icon: UIImage(systemName: "cloud"), iconBackgroundColor: .red){
+        }]))
+        
+        self.model.append(Section(title: "Apps", option: [
+            SettingsOptions(title: "Wifi", icon: UIImage(systemName: "wifi"), iconBackgroundColor: .systemPink){
+        },
+            SettingsOptions(title: "AirplaneMode", icon: UIImage(systemName: "airplane"), iconBackgroundColor: .systemOrange){
+        },
+            SettingsOptions(title: "Bluetooth", icon: UIImage(systemName: "bluetooth"), iconBackgroundColor: .link){
+        },
+            SettingsOptions(title: "ICloud", icon: UIImage(systemName: "cloud"), iconBackgroundColor: .red){
+        }]))
+        
+        self.model.append(Section(title: "Information", option: [
+            SettingsOptions(title: "Wifi", icon: UIImage(systemName: "wifi"), iconBackgroundColor: .systemPink){
+        },
+            SettingsOptions(title: "AirplaneMode", icon: UIImage(systemName: "airplane"), iconBackgroundColor: .systemOrange){
+        },
+            SettingsOptions(title: "Bluetooth", icon: UIImage(systemName: "bluetooth"), iconBackgroundColor: .link){
+        },
+            SettingsOptions(title: "ICloud", icon: UIImage(systemName: "cloud"), iconBackgroundColor: .red){
         }
+        ]))
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return model.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let model = model[indexPath.section].option[indexPath.row]
+        model.handler()
     }
 }
+

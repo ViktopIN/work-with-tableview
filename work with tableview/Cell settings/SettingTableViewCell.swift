@@ -13,7 +13,7 @@ class SettingTableViewCell: UITableViewCell {
         let view = UIView()
         
         view.clipsToBounds = true
-        view.layer.cornerRadius = 10
+        view.layer.cornerRadius = 8
         view.layer.masksToBounds = true
         
         return view
@@ -62,7 +62,7 @@ class SettingTableViewCell: UITableViewCell {
         super.layoutSubviews()
         
         let size: CGFloat = contentView.frame.size.height - 12
-        iconContainer.frame = CGRect(x: 10, y: 6, width: size, height: size)
+        iconContainer.frame = CGRect(x: 15, y: 6, width: size, height: size)
         
         let imageSize: CGFloat = size / 1.5
         iconImageView.frame = CGRect(x: (size - imageSize) / 2,
@@ -70,7 +70,7 @@ class SettingTableViewCell: UITableViewCell {
                                      width: imageSize,
                                      height: imageSize)
         
-        label.frame = CGRect(x: 20 + iconContainer.frame.size.width,
+        label.frame = CGRect(x: 25 + iconContainer.frame.size.width,
                              y: 0,
                              width: contentView.frame.size.width - 20 - iconContainer.frame.size.width - 10,
                              height: contentView.frame.size.height)

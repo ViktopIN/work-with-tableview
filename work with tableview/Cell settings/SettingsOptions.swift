@@ -13,3 +13,8 @@ struct SettingsOptions {
     let iconBackgroundColor: UIColor
     let handler: (() -> Void)
 }
+
+struct Section {
+    let title: String
+    let option: [SettingsOptions]
+}
