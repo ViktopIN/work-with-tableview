@@ -14,8 +14,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let tableView = UITableView(frame: .zero, style: .grouped)
         
-        tableView.register(UITableViewCell.self,
-                           forCellReuseIdentifier: "cell")
+        tableView.register(SettingTableViewCell.self,
+                           forCellReuseIdentifier: SettingTableViewCell.indentifier)
     
         return tableView
     }()
@@ -62,16 +62,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = model[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: SettingTableViewCell.indentifier,
+            for: indexPath
+        ) as? SettingTableViewCell else {
+            return UITableViewCell()
+        }
     
-        cell.textLabel?.text = model.title
-    
+        cell.configure(with: model)
         return cell
     }
     
     func configure() {
         self.model = Array(0...20).compactMap {
-            SettingsOptions(title: "Item \($0)", icon: UIImage(systemName: "house"), iconBackgroundColor: .systemPink) {
+            SettingsOptions(title: "Item \($0)",
+                            icon: UIImage(systemName: "house"),
+                            iconBackgroundColor: .systemPink) {
                 
             }
         }

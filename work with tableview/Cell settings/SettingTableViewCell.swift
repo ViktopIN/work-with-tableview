@@ -45,8 +45,8 @@ class SettingTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         contentView.addSubview(label)
-        contentView.addSubview(iconImageView)
         contentView.addSubview(iconContainer)
+        iconContainer.addSubview(iconImageView)
         
         contentView.clipsToBounds = true
         
@@ -60,12 +60,33 @@ class SettingTableViewCell: UITableViewCell {
 // MARK: - Override methods
     override func layoutSubviews() {
         super.layoutSubviews()
+        
+        let size: CGFloat = contentView.frame.size.height - 12
+        iconContainer.frame = CGRect(x: 10, y: 6, width: size, height: size)
+        
+        let imageSize: CGFloat = size / 1.5
+        iconImageView.frame = CGRect(x: (size - imageSize) / 2,
+                                     y: (size - imageSize) / 2,
+                                     width: imageSize,
+                                     height: imageSize)
+        
+        label.frame = CGRect(x: 20 + iconContainer.frame.size.width,
+                             y: 0,
+                             width: contentView.frame.size.width - 20 - iconContainer.frame.size.width - 10,
+                             height: contentView.frame.size.height)
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
         iconImageView.image = nil
         label.text = nil
         iconContainer.backgroundColor = nil
     }
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
+    public func configure(with model: SettingsOptions) {
+        label.text = model.title
+        iconImageView.image = model.icon
+        iconContainer.backgroundColor = model.iconBackgroundColor
     }
 }
