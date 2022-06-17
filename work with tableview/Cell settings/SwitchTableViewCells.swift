@@ -91,6 +91,8 @@ class SwitchTableViewCells: UITableViewCell {
                              y: 0,
                              width: contentView.frame.size.width - 20 - iconContainer.frame.size.width - 10,
                              height: contentView.frame.size.height)
+        
+        
     }
     
     override func prepareForReuse() {
