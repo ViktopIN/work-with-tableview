@@ -63,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				3592D0392885BB5900A0391D /* Model */,
+				3592D03C2885C37A00A0391D /* View */,
 				356679112857A45D004B4E7C /* Cell settings */,
 				356678F928578DEC004B4E7C /* AppDelegate.swift */,
 				356678FD28578DEC004B4E7C /* ViewController.swift */,
@@ -77,8 +78,6 @@
 		356679112857A45D004B4E7C /* Cell settings */ = {
 			isa = PBXGroup;
 			children = (
-				3566790F2857A14D004B4E7C /* SettingTableViewCell.swift */,
-				35D24BDE285B9F6E00153278 /* SwitchTableViewCells.swift */,
 			);
 			path = "Cell settings";
 			sourceTree = "<group>";
@@ -90,6 +89,15 @@
 				3592D03A2885BE8E00A0391D /* Models.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		3592D03C2885C37A00A0391D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3566790F2857A14D004B4E7C /* SettingTableViewCell.swift */,
+				35D24BDE285B9F6E00153278 /* SwitchTableViewCells.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
