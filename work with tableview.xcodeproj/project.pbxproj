@@ -62,24 +62,10 @@
 		356678F828578DEC004B4E7C /* work with tableview */ = {
 			isa = PBXGroup;
 			children = (
-				3592D0392885BB5900A0391D /* Model */,
-				3592D03C2885C37A00A0391D /* View */,
-				356679112857A45D004B4E7C /* Cell settings */,
-				356678F928578DEC004B4E7C /* AppDelegate.swift */,
-				356678FD28578DEC004B4E7C /* ViewController.swift */,
-				356678FF28578DEC004B4E7C /* Main.storyboard */,
-				3566790228578DEF004B4E7C /* Assets.xcassets */,
-				3566790428578DEF004B4E7C /* LaunchScreen.storyboard */,
-				3566790728578DEF004B4E7C /* Info.plist */,
+				3592D03E2885C8E700A0391D /* Sources */,
+				3592D03D2885C8DA00A0391D /* Resources */,
 			);
 			path = "work with tableview";
-			sourceTree = "<group>";
-		};
-		356679112857A45D004B4E7C /* Cell settings */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Cell settings";
 			sourceTree = "<group>";
 		};
 		3592D0392885BB5900A0391D /* Model */ = {
@@ -98,6 +84,52 @@
 				35D24BDE285B9F6E00153278 /* SwitchTableViewCells.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		3592D03D2885C8DA00A0391D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				356678FF28578DEC004B4E7C /* Main.storyboard */,
+				3566790228578DEF004B4E7C /* Assets.xcassets */,
+				3566790428578DEF004B4E7C /* LaunchScreen.storyboard */,
+				3566790728578DEF004B4E7C /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3592D03E2885C8E700A0391D /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				3592D03F2885C90200A0391D /* App */,
+				3592D0402885C91300A0391D /* Scenes */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		3592D03F2885C90200A0391D /* App */ = {
+			isa = PBXGroup;
+			children = (
+				356678F928578DEC004B4E7C /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		3592D0402885C91300A0391D /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				3592D0412885C97000A0391D /* Controller */,
+				3592D03C2885C37A00A0391D /* View */,
+				3592D0392885BB5900A0391D /* Model */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		3592D0412885C97000A0391D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				356678FD28578DEC004B4E7C /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
