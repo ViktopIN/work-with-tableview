@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController {
     
 // MARK: - Views
     var tableView: UITableView = {
@@ -18,7 +18,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                            forCellReuseIdentifier: SettingTableViewCell.indentifier)
         tableView.register(SwitchTableViewCells.self,
                            forCellReuseIdentifier: SwitchTableViewCells.indentifier)
-    
+        
         return tableView
     }()
     
@@ -33,8 +33,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     private func setupView() {
         
-        tableView.delegate = self
-        tableView.dataSource = self
         tableView.frame = view.bounds
     }
     
@@ -56,9 +54,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         setupHierarchy()
         setupView()
         setupLayout()
+        
+        configurationTableView()
+    }
+}
+// MARK: - Extensions & Methods
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func configurationTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
-// MARK: - Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return model[section].option.count
     }
@@ -107,4 +114,3 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
 }
-
