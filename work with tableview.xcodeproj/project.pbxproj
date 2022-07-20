@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3562733A2887F66900F56C1E /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356273392887F66900F56C1E /* SettingView.swift */; };
 		356678FA28578DEC004B4E7C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356678F928578DEC004B4E7C /* AppDelegate.swift */; };
 		356678FE28578DEC004B4E7C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356678FD28578DEC004B4E7C /* ViewController.swift */; };
 		3566790128578DEC004B4E7C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 356678FF28578DEC004B4E7C /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		356273392887F66900F56C1E /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		356678F628578DEB004B4E7C /* work with tableview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "work with tableview.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		356678F928578DEC004B4E7C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		356678FD28578DEC004B4E7C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 			children = (
 				3566790F2857A14D004B4E7C /* SettingTableViewCell.swift */,
 				35D24BDE285B9F6E00153278 /* SwitchTableViewCells.swift */,
+				356273392887F66900F56C1E /* SettingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 				356678FE28578DEC004B4E7C /* ViewController.swift in Sources */,
 				356678FA28578DEC004B4E7C /* AppDelegate.swift in Sources */,
 				35D24BDF285B9F6E00153278 /* SwitchTableViewCells.swift in Sources */,
+				3562733A2887F66900F56C1E /* SettingView.swift in Sources */,
 				3592D03B2885BE8E00A0391D /* Models.swift in Sources */,
 				356679102857A14D004B4E7C /* SettingTableViewCell.swift in Sources */,
 				3566790E28579C72004B4E7C /* SettingsOptions.swift in Sources */,
