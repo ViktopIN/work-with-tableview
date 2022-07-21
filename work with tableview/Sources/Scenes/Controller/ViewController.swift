@@ -10,40 +10,13 @@ import UIKit
 class ViewController: UIViewController {
     
 // MARK: - Views
-    var tableView: UITableView = {
-        
-        let tableView = UITableView(frame: .zero, style: .grouped)
-        
-        tableView.register(SettingTableViewCell.self,
-                           forCellReuseIdentifier: SettingTableViewCell.indentifier)
-        tableView.register(SwitchTableViewCells.self,
-                           forCellReuseIdentifier: SwitchTableViewCells.indentifier)
-        
-        return tableView
-    }()
+    private var settingView: SettingView? {
+        guard isViewLoaded else { return nil }
+        return view as? SettingView
+    }
     
 // MARK: - Properties
     var model = GeneralSection().get()
-    
-// MARK: - Settings
-    private func setupHierarchy() {
-        
-        view.addSubview(tableView)
-    }
-    
-    private func setupView() {
-        
-        tableView.frame = view.bounds
-    }
-    
-    private func setupLayout() {
-      
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-    }
     
 // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -51,19 +24,20 @@ class ViewController: UIViewController {
         
         title = "Настройки"
         
-        setupHierarchy()
-        setupView()
-        setupLayout()
-        
         configurationTableView()
     }
+    
+    override func loadView() {
+        view = SettingView()
+    }
 }
+
 // MARK: - Extensions & Methods
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
+extension ViewController: UITableViewDataSource {
     
     func configurationTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
+        settingView?.tableView.delegate = self
+        settingView?.tableView.dataSource = self
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -95,11 +69,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         }
     }
-    
+}
+extension ViewController: UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return model.count
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
