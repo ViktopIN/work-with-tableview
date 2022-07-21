@@ -26,7 +26,12 @@ class ViewController: UIViewController {
         
         configurationTableView()
     }
+    
+    override func loadView() {
+        view = SettingView()
+    }
 }
+
 // MARK: - Extensions & Methods
 extension ViewController: UITableViewDataSource {
     
